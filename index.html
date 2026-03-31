@@ -25,8 +25,30 @@
             </div>
 
             <div class="search-bar">
-                <input type="text" placeholder="Search for equipment, brands, or product IDs...">
+                <input type="text" id="main-search" placeholder="Search for equipment, brands, or product IDs...">
                 <i class="fas fa-search"></i>
+                <!-- Enhanced Search Dropdown (Change 5) -->
+                <div class="search-autocomplete" id="search-results">
+                    <div class="autocomplete-section">
+                        <h4>Product Suggestions</h4>
+                        <div class="autocomplete-item">
+                            <img src="https://via.placeholder.com/40" alt="Product">
+                            <div class="autocomplete-info">
+                                <div class="autocomplete-name">EST-R-4 <span>4-Burner</span> Gas Range</div>
+                                <div class="autocomplete-meta">$1,299.00 • 4.8★</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="autocomplete-section">
+                        <h4>Popular Brands</h4>
+                        <div class="autocomplete-item">
+                            <i class="fas fa-tag"></i>
+                            <div class="autocomplete-info">
+                                <div class="autocomplete-name">OMCAN</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="header-actions">
@@ -55,51 +77,72 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Change 8) -->
     <section class="hero">
-        <img src="/Users/arnabtagore/.gemini/antigravity/brain/85b14ec2-e30b-440f-afdc-073893c65cf9/modern_commercial_kitchen_hero_1774884932848.png" alt="Modern Commercial Kitchen" class="hero-img">
+        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Modern Commercial Kitchen" class="hero-img">
         <div class="container hero-content">
             <span class="hero-tag">New Season Arrival</span>
             <h1>The Heart of Every Professional Kitchen.</h1>
             <p>Premium grade restaurant equipment designed for durability and performance. Built for the chefs who never compromise on quality.</p>
-            <a href="#" class="btn">Shop the Collection</a>
+            <a href="category.html" class="btn">Shop the Collection</a>
         </div>
     </section>
 
-    <!-- Shop By Category -->
-    <section class="shop-by-category">
+    <!-- Featured Categories Section (Change 1) -->
+    <section class="featured-categories">
         <div class="container">
             <div class="section-title">
-                <h2>Shop by Category</h2>
+                <h2>Browse by Category</h2>
+                <p>1,000+ SKUs across all professional kitchen needs</p>
             </div>
-            <div class="category-row">
-                <a href="#" class="category-item">
-                    <div class="category-circle"><i class="fas fa-fire-burner" style="font-size: 40px; color: #444;"></i></div>
-                    <span>Cooking Range</span>
+            <div class="category-grid">
+                <a href="category.html" class="category-card">
+                    <i class="fas fa-fire-burner"></i>
+                    <h3>Kitchen Equipment</h3>
+                    <div class="product-count">240+ Products</div>
+                    <div class="shop-now">Shop Category →</div>
                 </a>
-                <a href="#" class="category-item">
-                    <div class="category-circle"><i class="fas fa-snowflake" style="font-size: 40px; color: #444;"></i></div>
-                    <span>Refrigeration</span>
+                <a href="category.html" class="category-card">
+                    <i class="fas fa-snowflake"></i>
+                    <h3>Refrigeration & Ice Maker</h3>
+                    <div class="product-count">180+ Products</div>
+                    <div class="shop-now">Shop Category →</div>
                 </a>
-                <a href="#" class="category-item">
-                    <div class="category-circle"><i class="fas fa-table" style="font-size: 40px; color: #444;"></i></div>
-                    <span>Worktables</span>
+                <a href="category.html" class="category-card">
+                    <i class="fas fa-table"></i>
+                    <h3>Worktables & Stands</h3>
+                    <div class="product-count">95+ Products</div>
+                    <div class="shop-now">Shop Category →</div>
                 </a>
-                <a href="#" class="category-item">
-                    <div class="category-circle"><i class="fas fa-sink" style="font-size: 40px; color: #444;"></i></div>
-                    <span>Stationary Sinks</span>
+                <a href="category.html" class="category-card">
+                    <i class="fas fa-sink"></i>
+                    <h3>Sinks</h3>
+                    <div class="product-count">120+ Products</div>
+                    <div class="shop-now">Shop Category →</div>
                 </a>
-                <a href="#" class="category-item">
-                    <div class="category-circle"><i class="fas fa-boxes-stacked" style="font-size: 40px; color: #444;"></i></div>
-                    <span>Storage Rack</span>
+                <a href="category.html" class="category-card">
+                    <i class="fas fa-boxes-stacked"></i>
+                    <h3>Storage & Transport</h3>
+                    <div class="product-count">110+ Products</div>
+                    <div class="shop-now">Shop Category →</div>
                 </a>
-                <a href="#" class="category-item">
-                    <div class="category-circle"><i class="fas fa-blender" style="font-size: 40px; color: #444;"></i></div>
-                    <span>Processing</span>
+                <a href="category.html" class="category-card">
+                    <i class="fas fa-blender"></i>
+                    <h3>Food Processing</h3>
+                    <div class="product-count">85+ Products</div>
+                    <div class="shop-now">Shop Category →</div>
+                </a>
+                <a href="category.html" class="category-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Smallware</h3>
+                    <div class="product-count">190+ Products</div>
+                    <div class="shop-now">Shop Category →</div>
                 </a>
             </div>
         </div>
     </section>
+
+
 
     <!-- Trending Now -->
     <section class="trending">
