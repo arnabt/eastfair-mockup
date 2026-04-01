@@ -69,7 +69,7 @@ img {
     background: var(--bg-white);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 6000; /* Increased to stay above overlay */
 }
 
 .header-content {
@@ -130,15 +130,15 @@ img {
 }
 
 .nav-bar {
-    border-bottom: 1px solid var(--border-light);
-    background: var(--bg-white);
+    position: relative;
+    /* border-bottom removal as it's now in main-header */
 }
 
 .nav-links {
     display: flex;
     justify-content: center;
-    gap: 32px;
-    padding: 15px 0;
+    gap: 20px;
+    padding: 0; /* Handled by li padding now */
 }
 
 .nav-link {
@@ -147,6 +147,7 @@ img {
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
+    white-space: nowrap;
 }
 
 .nav-link::after {
@@ -164,7 +165,103 @@ img {
     width: 100%;
 }
 
-/* Hero Section */
+/* Mega Menu Styles */
+.nav-links li {
+    position: relative;
+    padding: 15px 15px; /* Increased padding for better hover target */
+    margin: 0 5px;
+}
+
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 900px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-strong);
+    display: flex;
+    padding: 40px;
+    gap: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10000; /* Extremely high to stay above everything */
+    pointer-events: none; /* Disable when invisible */
+}
+
+.nav-links li:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+/* More robust Hover bridge */
+.nav-links li::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 30px; /* Wider bridge */
+    display: block;
+    z-index: 1;
+}
+
+.nav-bar {
+    position: relative;
+    z-index: 1500; /* Above header-content */
+}
+
+.mega-col {
+    flex: 1;
+}
+
+.mega-col h4 {
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 10px;
+}
+
+.mega-col ul li {
+    display: block;
+    margin-bottom: 10px;
+    padding: 0; /* Override */
+}
+
+.mega-col ul li a {
+    font-size: 14px;
+    color: var(--text-gray);
+    font-weight: 500;
+}
+
+.mega-col ul li a:hover {
+    color: var(--primary-red);
+    padding-left: 5px;
+}
+
+.mega-promo {
+    background: var(--cream-bg);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.mega-promo img {
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.mega-promo h5 {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
 .hero {
     position: relative;
     height: 600px;
@@ -470,6 +567,8 @@ footer {
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
 }
+
+/* Consolidated styles moved to main-header block */
 
 .category-card {
     background: var(--bg-white);
@@ -884,3 +983,283 @@ footer {
     .nav-bar { display: none; } /* Use hamburger */
 }
 
+
+/* Cart Drawer Styles */
+.drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 5000; /* Below header and mobile-nav */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: var(--transition-base);
+}
+
+.drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background: var(--bg-white);
+    z-index: 2200;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: var(--transition-base);
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-drawer.active {
+    right: 0;
+}
+
+.cart-drawer-header {
+    padding: 24px;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-drawer-header h3 {
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.close-drawer {
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-gray);
+}
+
+.cart-items-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 24px;
+}
+
+.cart-footer {
+    padding: 24px;
+    border-top: 1px solid var(--border-light);
+    background: #fcfcfc;
+}
+
+.cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.cart-total-row span:first-child {
+    font-weight: 600;
+    color: var(--text-gray);
+}
+
+.cart-total-row span:last-child {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary-red);
+}
+
+.btn-checkout {
+    width: 100%;
+    padding: 16px;
+    background: var(--primary-red);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.btn-checkout:hover {
+    background: var(--primary-red-hover);
+}
+
+.mobile-nav, .mobile-menu-trigger {
+    display: none;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 20px;
+    }
+    .nav-links {
+        gap: 20px;
+    }
+    .mega-menu {
+        width: 95vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 15px 0;
+    }
+    .header-content {
+        display: grid;
+        grid-template-columns: 50px 1fr 110px; /* Slightly wider side columns */
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        max-width: 100vw;
+        padding: 10px 15px;
+    }
+    .search-bar {
+        grid-row: 2;
+        grid-column: 1 / span 3;
+        margin: 5px 0;
+    }
+    .logo {
+        grid-column: 2;
+        justify-self: center;
+    }
+    .logo span {
+        display: none;
+    }
+    .header-actions {
+        grid-column: 3;
+        gap: 12px;
+        justify-self: end;
+    }
+    .header-actions a i {
+        font-size: 18px;
+    }
+    .header-actions a span {
+        display: none;
+    }
+
+    /* Mobile Menu Toggle */
+    .mobile-menu-trigger {
+        grid-column: 1;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        font-size: 24px;
+        color: var(--dark-gray);
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 6500;
+        margin-left: -5px; /* Slight offset for alignment */
+        pointer-events: auto;
+    }
+
+    .nav-bar {
+        display: none !important; /* Hide desktop nav */
+    }
+
+    /* Mobile Nav Overlay */
+    .mobile-nav {
+        position: fixed;
+        display: block !important; /* Force display for transition */
+        top: 0;
+        left: 0;
+        width: 85%;
+        height: 100%;
+        background: var(--bg-white);
+        z-index: 7000;
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 60px 30px;
+        box-shadow: var(--shadow-strong);
+        overflow-y: auto;
+        pointer-events: none; /* Crucial fix: don't block clicks when hidden */
+        visibility: hidden;
+    }
+    .mobile-nav.active {
+        transform: translateX(0);
+        pointer-events: auto;
+        visibility: visible;
+    }
+    .mobile-nav-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 24px;
+        color: var(--text-gray);
+        cursor: pointer;
+    }
+    .mobile-nav ul {
+        list-style: none;
+        padding: 0;
+    }
+    .mobile-nav li {
+        margin-bottom: 25px;
+        border-bottom: 1px solid var(--border-light);
+        padding-bottom: 10px;
+    }
+    .mobile-nav a {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--dark-gray);
+        text-decoration: none;
+        text-transform: uppercase;
+        display: block;
+    }
+
+    /* Product Grid Responsive */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px;
+    }
+    
+    /* Account Stacking */
+    .account-layout {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    .account-sidebar {
+        width: 100% !important;
+        margin-bottom: 40px;
+    }
+
+    /* Cart Mobile Fixes */
+    .cart-drawer {
+        width: 100% !important;
+        right: -100%; /* Still starts off-screen */
+    }
+    .cart-drawer.active {
+        right: 0;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 30px;
+    }
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 32px;
+    }
+    .btn {
+        padding: 12px 20px;
+    }
+    .footer-content {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+    }
+}

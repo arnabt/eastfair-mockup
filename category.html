@@ -17,52 +17,142 @@
     <!-- Main Header -->
     <header class="main-header">
         <div class="container header-content">
+            <button class="mobile-menu-trigger" id="mobile-menu-open" style="display: none;">
+                <i class="fas fa-bars"></i>
+            </button>
             <div class="logo">
                 <a href="index.html">
                     <i class="fas fa-utensils"></i>
                     EAST<span>FAIR</span>
+                    <span class="chinese-logo" style="font-size: 14px; font-weight: 400; margin-left: 8px; color: #999;">东嘉</span>
                 </a>
-                <span style="font-size: 14px; font-weight: 400; margin-left: 8px; color: #999;">东嘉</span>
             </div>
 
             <div class="search-bar">
                 <input type="text" id="main-search" placeholder="Search for equipment, brands, or product IDs...">
                 <i class="fas fa-search"></i>
                 <div class="search-autocomplete" id="search-results">
-                    <!-- Same autocomplete as index.html -->
+                    <div class="autocomplete-section">
+                        <h4>Product Suggestions</h4>
+                        <div class="autocomplete-item">
+                            <img src="https://via.placeholder.com/40" alt="Product">
+                            <div class="autocomplete-info">
+                                <div class="autocomplete-name">EST-R-4 <span>4-Burner</span> Gas Range</div>
+                                <div class="autocomplete-meta">$1,299.00 • 4.8★</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="header-actions">
-                <a href="#"><i class="far fa-user"></i> Account</a>
-                <a href="#" style="position: relative;">
-                    <i class="fas fa-shopping-cart"></i> Cart
-                    <span class="cart-count" style="position: absolute; top: -8px; right: -12px; background: var(--primary-red); color: white; border-radius: 50%; width: 18px; height: 18px; font-size: 10px; display: flex; align-items: center; justify-content: center;">0</span>
+                <a href="account.html"><i class="far fa-user"></i> <span>Account</span></a>
+                <a href="account.html#wishlist"><i class="far fa-heart"></i> <span>Wishlist</span></a>
+                <a href="javascript:void(0)" class="cart-trigger" style="position: relative;">
+                    <i class="fas fa-shopping-cart"></i> <span>Cart</span>
+                    <span class="cart-count" style="position: absolute; top: -8px; right: -12px; background: var(--primary-red); color: white; border-radius: 50%; width: 18px; height: 18px; font-size: 10px; display: flex; align-items: center; justify-content: center; display: none;">0</span>
                 </a>
             </div>
         </div>
+        
+        <!-- Navigation -->
+        <nav class="nav-bar">
+            <div class="container">
+                <ul class="nav-links">
+                    <li>
+                        <a href="category.html" class="nav-link active">Kitchen Equipment <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-col">
+                                <h4>Cooking Equipment</h4>
+                                <ul>
+                                    <li><a href="category.html">Gas Ranges & Ovens</a></li>
+                                    <li><a href="category.html">Fryers & Griddles</a></li>
+                                    <li><a href="category.html">Charbroilers</a></li>
+                                    <li><a href="category.html">Convection Ovens</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-col">
+                                <h4>Food Prep</h4>
+                                <ul>
+                                    <li><a href="category.html">Meat Slicers</a></li>
+                                    <li><a href="category.html">Mixers & Blenders</a></li>
+                                    <li><a href="category.html">Dough Sheeters</a></li>
+                                    <li><a href="category.html">Food Processors</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-col">
+                                <div class="mega-promo">
+                                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Promo">
+                                    <h5>Spring Liquidation</h5>
+                                    <p style="font-size: 12px;">Up to 40% Off Select Ranges</p>
+                                    <a href="category.html" class="btn" style="padding: 10px; font-size: 10px; margin-top: 10px; width: 100%;">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="category.html" class="nav-link">Refrigeration <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-col">
+                                <h4>Reach-In Units</h4>
+                                <ul>
+                                    <li><a href="category.html">Refrigerators</a></li>
+                                    <li><a href="category.html">Freezers</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-col">
+                                <h4>Specific Purpose</h4>
+                                <ul>
+                                    <li><a href="category.html">Ice Makers</a></li>
+                                    <li><a href="category.html">Pizza Prep Tables</a></li>
+                                    <li><a href="category.html">Bar Coolers</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-col">
+                                <div class="mega-promo">
+                                    <i class="fas fa-snowflake" style="font-size: 40px; color: var(--primary-red); margin-bottom: 10px;"></i>
+                                    <div style="font-weight: 700;">Energy Star Certified</div>
+                                    <p style="font-size: 12px;">Save on utilities this season.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="category.html" class="nav-link">Worktables & Stands</a></li>
+                    <li><a href="category.html" class="nav-link">Sinks</a></li>
+                    <li><a href="category.html" class="nav-link">Storage</a></li>
+                    <li><a href="category.html" class="nav-link">Food Processing</a></li>
+                    <li><a href="category.html" class="nav-link">Smallware</a></li>
+                    <li><a href="category.html" class="nav-link" style="color: var(--primary-red);">Flash Sales</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
-    <!-- Navigation -->
-    <nav class="nav-bar">
-        <div class="container">
-            <ul class="nav-links">
-                <li><a href="category.html" class="nav-link active">Kitchen Equipment</a></li>
-                <li><a href="category.html" class="nav-link">Refrigeration</a></li>
-                <li><a href="category.html" class="nav-link">Worktables & Stands</a></li>
-                <li><a href="category.html" class="nav-link">Sinks</a></li>
-                <li><a href="category.html" class="nav-link">Storage</a></li>
-                <li><a href="category.html" class="nav-link">Food Processing</a></li>
-                <li><a href="category.html" class="nav-link">Smallware</a></li>
-                <li><a href="category.html" class="nav-link" style="color: var(--primary-red);">Flash Sales</a></li>
-            </ul>
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav" id="mobile-nav">
+        <span class="mobile-nav-close" id="mobile-nav-close">&times;</span>
+        <div style="margin-bottom: 30px; text-align: center;">
+            <i class="fas fa-utensils" style="font-size: 32px; color: var(--primary-red); margin-bottom: 10px; display: block;"></i>
+            <h3 style="font-size: 20px; color: var(--dark-gray); letter-spacing: 2px;">EAST<span>FAIR</span></h3>
         </div>
-    </nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="category.html">Kitchen Equipment</a></li>
+            <li><a href="category.html">Refrigeration</a></li>
+            <li><a href="category.html">Cooking Equipment</a></li>
+            <li><a href="category.html">Food Prep</a></li>
+            <li><a href="category.html">Sinks & Tables</a></li>
+            <li><a href="category.html">Flash Sales</a></li>
+            <li><hr style="border: none; border-top: 1px solid var(--border-light); margin: 20px 0;"></li>
+            <li><a href="account.html"><i class="far fa-user"></i> My Account</a></li>
+            <li><a href="account.html#wishlist"><i class="far fa-heart"></i> My Wishlist</a></li>
+        </ul>
+    </div>
 
     <main class="container">
         <!-- Breadcrumbs -->
         <div style="padding: 20px 0; font-size: 14px; color: var(--text-gray);">
-            <a href="index.html">Home</a> / <span style="color: var(--dark-gray); font-weight: 600;">Kitchen Equipment</span>
+            <a href="index.html">Home</a> / <span id="dynamic-breadcrumb" style="color: var(--dark-gray); font-weight: 600;">Kitchen Equipment</span>
         </div>
 
         <div class="category-page-container">
@@ -70,7 +160,7 @@
             <aside class="filters-sidebar">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                     <h3 style="font-size: 18px;">Filters</h3>
-                    <a href="#" style="font-size: 12px; color: var(--primary-red); font-weight: 600;">Clear All</a>
+                    <a href="category.html" style="font-size: 12px; color: var(--primary-red); font-weight: 600;">Clear All</a>
                 </div>
 
                 <!-- Price Filter -->
@@ -107,7 +197,7 @@
                         <label class="filter-checkbox">
                             <input type="checkbox"> THORINOX <span class="filter-badge">31</span>
                         </label>
-                        <a href="#" style="font-size: 12px; color: var(--primary-red); margin-top: 5px;">View 8 More</a>
+                        <a href="category.html" style="font-size: 12px; color: var(--primary-red); margin-top: 5px;">View 8 More</a>
                     </div>
                 </div>
 
@@ -147,7 +237,7 @@
             <!-- Main Content Area -->
             <section class="category-main">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-                    <h2 style="font-size: 24px;">Kitchen Equipment (240 Products)</h2>
+                    <h2 id="dynamic-category-title" style="font-size: 24px;">Kitchen Equipment (240 Products)</h2>
                     <select style="padding: 8px; border: 1px solid var(--border-medium); border-radius: 4px;">
                         <option>Sort By: Best Sellers</option>
                         <option>Price: Low to High</option>
@@ -162,7 +252,7 @@
                         Brand: VULCAN <i class="fas fa-times" style="cursor: pointer;"></i>
                     </div>
                     <div style="background: var(--cream-bg); padding: 5px 12px; border-radius: 20px; font-size: 12px; display: flex; align-items: center; gap: 8px;">
-                        Price: $0 - $5000 < i class="fas fa-times" style="cursor: pointer;"></i>
+                        Price: $0 - $5000 <i class="fas fa-times" style="cursor: pointer;"></i>
                     </div>
                 </div>
 
@@ -303,7 +393,7 @@
                                 <span class="price-old">$1,550.00</span>
                             </div>
                         </div>
-                        <a href="#" class="quick-view">Quick Add to Cart</a>
+                        <a href="category.html" class="quick-view">Quick Add to Cart</a>
                     </div>
 
                     <!-- Product 2 -->
@@ -320,7 +410,7 @@
                                 <span class="price-new">$849.00</span>
                             </div>
                         </div>
-                        <a href="#" class="quick-view">Quick Add to Cart</a>
+                        <a href="category.html" class="quick-view">Quick Add to Cart</a>
                     </div>
 
                     <!-- Product 3 -->
@@ -337,7 +427,7 @@
                                 <span class="price-new">$1,150.00</span>
                             </div>
                         </div>
-                        <a href="#" class="quick-view">Quick Add to Cart</a>
+                        <a href="category.html" class="quick-view">Quick Add to Cart</a>
                     </div>
 
                     <!-- Product 4 -->
@@ -354,16 +444,16 @@
                                 <span class="price-new">$499.00</span>
                             </div>
                         </div>
-                        <a href="#" class="quick-view">Quick Add to Cart</a>
+                        <a href="category.html" class="quick-view">Quick Add to Cart</a>
                     </div>
                 </div>
 
                 <!-- Pagination -->
                 <div style="display: flex; justify-content: center; gap: 10px; margin-top: 40px;">
-                    <a href="#" style="width: 40px; height: 40px; border: 1px solid var(--border-medium); display: flex; align-items: center; justify-content: center; border-radius: 4px; background: var(--primary-red); color: white;">1</a>
-                    <a href="#" style="width: 40px; height: 40px; border: 1px solid var(--border-medium); display: flex; align-items: center; justify-content: center; border-radius: 4px;">2</a>
-                    <a href="#" style="width: 40px; height: 40px; border: 1px solid var(--border-medium); display: flex; align-items: center; justify-content: center; border-radius: 4px;">3</a>
-                    <a href="#" style="width: 40px; height: 40px; border: 1px solid var(--border-medium); display: flex; align-items: center; justify-content: center; border-radius: 4px;"><i class="fas fa-chevron-right"></i></a>
+                    <a href="category.html" style="width: 40px; height: 40px; border: 1px solid var(--border-medium); display: flex; align-items: center; justify-content: center; border-radius: 4px; background: var(--primary-red); color: white;">1</a>
+                    <a href="category.html" style="width: 40px; height: 40px; border: 1px solid var(--border-medium); display: flex; align-items: center; justify-content: center; border-radius: 4px;">2</a>
+                    <a href="category.html" style="width: 40px; height: 40px; border: 1px solid var(--border-medium); display: flex; align-items: center; justify-content: center; border-radius: 4px;">3</a>
+                    <a href="category.html" style="width: 40px; height: 40px; border: 1px solid var(--border-medium); display: flex; align-items: center; justify-content: center; border-radius: 4px;"><i class="fas fa-chevron-right"></i></a>
                 </div>
             </section>
         </div>
@@ -411,6 +501,56 @@
         </div>
     </div>
 
-    <script src="main.js"></script>
+    <!-- Cart Drawer -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3>Your Cart</h3>
+            <span class="close-drawer" id="close-drawer">&times;</span>
+        </div>
+        <div class="cart-items-container" id="cart-items-container">
+            <!-- Items injected by JS -->
+        </div>
+        <div class="cart-footer" id="cart-footer">
+            <div class="cart-total-row">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">$0.00</span>
+            </div>
+            <p style="font-size: 12px; color: var(--text-gray); margin-bottom: 20px;">Shipping & taxes calculated at checkout.</p>
+            <button class="btn-checkout" onclick="window.location.href='checkout.html'">Checkout Now</button>
+        </div>
+    </div>
+
+    <script src="main.js?v=2"></script>
+    <script>
+        // Inline robust category parser (runs immediately and on hash change)
+        (function() {
+            function updateCategory() {
+                try {
+                    let cat = null;
+                    const searchParams = new URLSearchParams(window.location.search);
+                    if (searchParams.has('cat')) {
+                        cat = searchParams.get('cat');
+                    } else if (window.location.hash.startsWith('#cat=')) {
+                        cat = decodeURIComponent(window.location.hash.substring(5));
+                    }
+                    
+                    if (cat) {
+                        const title = document.getElementById('dynamic-category-title');
+                        const crumb = document.getElementById('dynamic-breadcrumb');
+                        if (title) title.innerText = cat + ' (120 Products)';
+                        if (crumb) crumb.innerText = cat;
+                        document.title = cat + " | EastFair - Professional Restaurant Supplies";
+                    }
+                } catch (e) {
+                    console.error("Error setting category context", e);
+                }
+            }
+            // Run on load
+            updateCategory();
+            // Run on hash changes (when navigating between categories on the same page)
+            window.addEventListener('hashchange', updateCategory);
+        })();
+    </script>
 </body>
 </html>
